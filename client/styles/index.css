@@ -1,0 +1,86 @@
+body {
+    overflow: hidden;
+    user-select: none;
+}
+
+.platform {
+    background-color: #fdfdfd;
+    height: 70px;
+    box-shadow: 0px 3px 6px 2px #607d8b59;
+    position: relative;
+}
+
+.platform>h2 {
+    line-height: 70px;
+    display: inline-block;
+    padding-left: 50px;
+    margin-left: 20px;
+    font-size: 30px;
+    font-weight: 200;
+    background-image: url('../images/logo.png');
+    background-size: auto 60%;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+.platform>ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 0;
+}
+
+.platform>ul>li {
+    display: inline-block;
+    line-height: 24px;
+    padding: 0 10px;
+    background-color: #279ae1;
+    font-size: 14px;
+    color: white;
+    border-radius: 0 0 5px 5px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.platform>ul>li.warn {
+    background-color: red;
+}
+
+.platform>ul>li:hover {
+    background-color: #0573b8;
+}
+
+.filelist {
+    height: calc(100vh - 70px);
+    overflow: auto;
+    background-color: #fcfcfc;
+    padding: 0 50px;
+}
+
+.filelist>li {
+    text-decoration: none;
+    padding: 10px;
+    color: #000000;
+    text-align: center;
+    width: 100px;
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    padding-top: 65px;
+    margin-top: 50px;
+    font-size: 12px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: top;
+}
+
+.filelist>li:hover {
+    outline: 1px solid #55b9e6;
+}
+
+.filelist>li.file {
+    background-image: url('../images/file.jpeg');
+}
+
+.filelist>li.folder {
+    background-image: url('../images/folder.jpeg');
+}

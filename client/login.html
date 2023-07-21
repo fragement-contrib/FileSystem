@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 文件管理系统</title>
+    <link rel="shortcut icon" href="./images/logo.png">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/login.css">
+    <script src="./lib/system.info.js"></script>
+</head>
+
+<body>
+
+    <div class="login-view">
+        <div class="image">
+            <div class="version" id="version"></div>
+        </div>
+        <div class="input">
+            <h2>
+                文件管理系统
+            </h2>
+            <input type="text" id="username" placeholder="请输入用户名">
+            <input type="password" id="password" placeholder="请输入密码">
+            <button onclick="doLogin()">登录</button>
+        </div>
+    </div>
+
+    <script src="./scripts/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页 - 文件管理系统</title>
+    <link rel="shortcut icon" href="./images/logo.png">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <script>
+        if (sessionStorage.getItem('isLogin') != 'yes') {
+            window.location.href = './login.html';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="platform">
+        <h2>
+            文件管理系统
+        </h2>
+        <ul>
+            <li>
+                刷新
+            </li>
+            <li>
+                上传
+            </li>
+            <li class="warn">
+                退出登录
+            </li>
+        </ul>
+    </div>
+    <ul class="filelist" id="filelist"></ul>
+
+    <script src="./scripts/index.js"></script>
+</body>
+
+</html>
