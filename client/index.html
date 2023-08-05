@@ -21,11 +21,11 @@
             文件管理系统
         </h2>
         <ul>
-            <li>
+            <li onclick="doFresh()">
                 刷新
             </li>
-            <li>
-                上传
+            <li class="label">
+                <label for="selectFile">上传</label>
             </li>
             <li class="warn">
                 退出登录
@@ -33,6 +33,38 @@
         </ul>
     </div>
     <ul class="filelist" id="filelist"></ul>
+
+    <!-- 辅助元素 -->
+    <div class="noshow">
+        <input type="file" id="selectFile" onchange="uploadFile(event)" multiple="true" />
+    </div>
+
+    <!-- 右键视图 -->
+    <div class="rightMenu" id="rightMenu">
+
+        <!-- 空白区域 -->
+        <ul id="rightMenu-blank">
+            <li onclick="doFresh()">
+                刷新
+            </li>
+            <li>
+                <label for="selectFile">上传</label>
+            </li>
+            <li>
+                粘贴
+            </li>
+            <li>
+                回到首页
+            </li>
+            <li class="line"></li>
+            <li>
+                退出登录
+            </li>
+        </ul>
+
+        <!-- 条目区域 -->
+        <ul id="rightMenu-item"></ul>
+    </div>
 
     <script src="./scripts/index.js"></script>
 </body>

@@ -13,7 +13,6 @@ fs.writeFileSync("./client/lib/system.info.js", `window.systemInfo = {
     "version": "${pkg.version}"
 };`)
 
-
-if (!fs.existsSync('./userspace')) {
-    fs.mkdirSync('./userspace')
+if (!fs.existsSync('./client/userspace')) {
+    fs.mkdirSync('./client/userspace')
 }

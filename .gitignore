@@ -37,4 +37,4 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 /client/lib
-/userspace
+/client/userspace
