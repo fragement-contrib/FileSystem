@@ -76,23 +76,26 @@ if (url.length > 0) {
 
 // 上传单个文件
 function doUpload(file, callback) {
+
+    var filepath = file.webkitRelativePath || file.name;
     var formData = new FormData();
+
     formData.append('file', file);
     formData.append('path', currentPath);
     formData.append('filename', encodeURIComponent(file.name));
+    formData.append('filepath', encodeURIComponent(filepath));
 
     fetch("/handler/upload", {
         method: "POST",
         body: formData
     }).then(function (response) {
         response.json().then(function (res) {
-            alert(res.msg);
             if (!callback) {
                 setTimeout(function () {
                     doFresh();
                 }, 200);
             } else {
-                callback();
+                callback(res, filepath);
             }
         });
     });
@@ -101,15 +104,28 @@ function doUpload(file, callback) {
 // 上传多文件
 function doUploads(files) {
     var index = -1;
+
+    var hadLen = 0;
+    var processLog = function (res, filepath) {
+        hadLen += 1;
+        console.log("#"+hadLen+" [上传成功] " + (hadLen / files.length * 100).toFixed(2) + "% " + filepath);
+    };
+
     var doUploadCallback = function () {
         index += 1;
 
         //  文件
         if (files[index].type) {
+            // console.error(files[index]);
+
             if (index == files.length - 1) {
-                doUpload(files[index]);
+                doUpload(files[index], processLog);
+                doFresh();
             } else {
-                doUpload(files[index], doUploadCallback);
+                doUpload(files[index], function (res, filepath) {
+                    processLog(res, filepath);
+                    doUploadCallback();
+                });
             }
         }
 

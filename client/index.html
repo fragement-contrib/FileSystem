@@ -25,7 +25,10 @@
                 刷新
             </li>
             <li class="label">
-                <label for="selectFile">上传</label>
+                <label for="selectFile">上传文件</label>
+            </li>
+            <li class="label">
+                <label for="selectFolder">上传文件夹</label>
             </li>
             <li class="warn">
                 退出登录
@@ -37,6 +40,7 @@
     <!-- 辅助元素 -->
     <div class="noshow">
         <input type="file" id="selectFile" onchange="uploadFile(event)" multiple="true" />
+        <input type="file" id="selectFolder" onchange="uploadFile(event)" multiple="true" webkitdirectory mozdirectory odirectory/>
     </div>
 
     <!-- 右键视图 -->
@@ -48,7 +52,10 @@
                 刷新
             </li>
             <li>
-                <label for="selectFile">上传</label>
+                <label for="selectFile">上传文件</label>
+            </li>
+            <li>
+                <label for="selectFolder">上传文件夹</label>
             </li>
             <li>
                 粘贴

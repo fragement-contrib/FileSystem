@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 
 const devby = require('devby')
 const { join } = require("path")
-const { existsSync, mkdirSync, readdirSync, lstatSync } = require('fs')
+const { existsSync, mkdirSync, readdirSync, lstatSync, writeFileSync } = require('fs')
 
 // 磁盘操作服务
 
@@ -30,5 +30,30 @@ export class DistService {
         }
 
         return resultData
+    }
+
+    // 写文件到磁盘
+    writeFileSync(filepath: string, data: any): void {
+
+        let needMkdirPaths: Array<string> = [], tempPath = filepath
+
+        while (true) {
+
+            let currentPath = join(tempPath, "../")
+            if (existsSync(currentPath)) {
+
+                for (let index = 0; index < needMkdirPaths.length; index++) {
+                    mkdirSync(needMkdirPaths[index])
+                }
+                writeFileSync(filepath, data)
+
+                return
+            } else {
+                needMkdirPaths.unshift(currentPath)
+                tempPath = currentPath
+            }
+
+        }
+
     }
 }
